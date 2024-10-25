@@ -13,6 +13,7 @@ class CustomScaffold extends StatelessWidget {
   final String? lightBackgroundAsset;
 
   const CustomScaffold({
+    super.key,
     required this.child,
     this.isDark = true,
     this.backgroundColor,

@@ -1,7 +1,6 @@
 name: custom_scaffold
 description: A customizable scaffold widget with support for dark/light themes, background images, and floating action buttons.
 version: 1.0.0
-author: earbajsaria3@gmail.com
 repository: https://github.com/Earbaj/custom_schaffold.git
 
 environment:
