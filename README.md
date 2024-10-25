@@ -92,8 +92,12 @@ Here's how you can use CustomScaffold in your Flutter app:
 
 
 # 📝 License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License.
 
 # 💬 Feedback
 If you encounter any issues or have suggestions for improvements, please open an issue on GitHub.
+
+# Contact For any questions or inquiries, feel free to reach out:
+Author: Earbaj Md Saria 
+Email: earbajsaria3@gmail.com
 
