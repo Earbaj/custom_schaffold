@@ -35,11 +35,11 @@ class CustomScaffold extends StatelessWidget {
         decoration: BoxDecoration(
           image: darkBackgroundAsset != null || lightBackgroundAsset != null
               ? DecorationImage(
-            image: AssetImage(
-              isDark ? darkBackgroundAsset! : lightBackgroundAsset!,
-            ),
-            fit: BoxFit.cover,
-          )
+                  image: AssetImage(
+                    isDark ? darkBackgroundAsset! : lightBackgroundAsset!,
+                  ),
+                  fit: BoxFit.cover,
+                )
               : null,
         ),
         child: child,
