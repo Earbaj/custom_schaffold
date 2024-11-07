@@ -36,6 +36,12 @@ class CustomScaffold extends StatelessWidget {
   /// If [isDark] is `false`, this image will be displayed as the background.
   final String? lightBackgroundAsset;
 
+  //Determine if the bottom instance resizable or not
+  final bool bottomInstance;
+
+  //Determine if the floating button positions
+  final FloatingActionButtonLocation floatingActionButtonLocation;
+
   /// Creates a [CustomScaffold] widget.
   ///
   /// [child] is required and represents the main content of the scaffold.
@@ -52,13 +58,16 @@ class CustomScaffold extends StatelessWidget {
     this.bottomNav,
     this.darkBackgroundAsset,
     this.lightBackgroundAsset,
+    this.bottomInstance = true,
+    this.floatingActionButtonLocation =
+        FloatingActionButtonLocation.centerDocked,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar,
-      backgroundColor: backgroundColor ?? Colors.white,
+      backgroundColor: backgroundColor ?? Colors.transparent,
       body: Container(
         padding: padding,
         decoration: BoxDecoration(
@@ -75,6 +84,8 @@ class CustomScaffold extends StatelessWidget {
       ),
       bottomNavigationBar: bottomNav,
       floatingActionButton: floatingActionButton,
+      resizeToAvoidBottomInset: bottomInstance,
+      floatingActionButtonLocation: floatingActionButtonLocation,
     );
   }
 }
