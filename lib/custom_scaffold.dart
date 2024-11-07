@@ -36,10 +36,10 @@ class CustomScaffold extends StatelessWidget {
   /// If [isDark] is `false`, this image will be displayed as the background.
   final String? lightBackgroundAsset;
 
-  //Determine if the bottom instance resizable or not
+  ///Determine if the bottom instance resizable or not [bottomInstanceResize]
   final bool bottomInstance;
 
-  //Determine if the floating button positions
+  ///Determine if the floating button positions [floatingbuttonPositions]
   final FloatingActionButtonLocation floatingActionButtonLocation;
 
   /// Creates a [CustomScaffold] widget.
