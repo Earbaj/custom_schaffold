@@ -267,24 +267,26 @@ class CustomScaffold extends StatelessWidget {
     final effectiveIsDark =
         isDark ?? (Theme.of(context).brightness == Brightness.dark);
 
-    // Resolve ImageProvider based on theme
+    // Resolve ImageProvider based on theme with graceful fallback
     ImageProvider? imageProvider;
     if (effectiveIsDark) {
-      if (darkBackgroundImage != null) {
-        imageProvider = darkBackgroundImage;
-      } else if (darkBackgroundAsset != null) {
-        imageProvider = AssetImage(darkBackgroundAsset!);
-      } else if (backgroundImage != null) {
-        imageProvider = backgroundImage;
-      }
+      imageProvider = darkBackgroundImage ??
+          (darkBackgroundAsset != null
+              ? AssetImage(darkBackgroundAsset!)
+              : (backgroundImage ??
+                  (lightBackgroundImage ??
+                      (lightBackgroundAsset != null
+                          ? AssetImage(lightBackgroundAsset!)
+                          : null))));
     } else {
-      if (lightBackgroundImage != null) {
-        imageProvider = lightBackgroundImage;
-      } else if (lightBackgroundAsset != null) {
-        imageProvider = AssetImage(lightBackgroundAsset!);
-      } else if (backgroundImage != null) {
-        imageProvider = backgroundImage;
-      }
+      imageProvider = lightBackgroundImage ??
+          (lightBackgroundAsset != null
+              ? AssetImage(lightBackgroundAsset!)
+              : (backgroundImage ??
+                  (darkBackgroundImage ??
+                      (darkBackgroundAsset != null
+                          ? AssetImage(darkBackgroundAsset!)
+                          : null))));
     }
 
     // Resolve Gradient based on theme
@@ -382,13 +384,14 @@ class CustomScaffold extends StatelessWidget {
             children: [
               backgroundContainer,
               Positioned.fill(
-                child: Container(
+                child: ModalBarrier(
+                  dismissible: false,
                   color: loadingOverlayColor ?? Colors.black26,
-                  child: Center(
-                    child: loadingWidget ??
-                        const CircularProgressIndicator.adaptive(),
-                  ),
                 ),
+              ),
+              Center(
+                child:
+                    loadingWidget ?? const CircularProgressIndicator.adaptive(),
               ),
             ],
           )
